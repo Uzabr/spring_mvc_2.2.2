@@ -18,13 +18,15 @@ public class CarService {
             new Car("Opel", 150, 180)
     );
 
-    public List<Car> getCars(int count) {
-        int k = Math.min(Math.max(count, 0), cars.size());
+    public List<Car> getCars(Integer count) {
+        int limit = (count == null || count <= 0 || count >= 5) ? 5 : count;
+        int k = Math.min(limit, cars.size());
         return cars.subList(0, k);
     }
 
     public List<Car> getCars() {
         return cars;
     }
+
 
 }
